@@ -1,26 +1,87 @@
-## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
+# 숫자 야구 게임
+by cyh789
+
+## 요구사항
+1부터 9까지 서로 다른 수로 이루어진 3 자리의 수를 맞추는 게임
+같은 수가 같은 자리에 있으면 스트라이크, 다른 자리에 있으면 볼
+같은 수가 전혀 없으면 아웃
+정답을 맞췄을 시, 1과 2 중 입력을 받고 1을 입력시 계속 새로운 게임을 진행할 수 있어야한다.
+
+## 기능 목록(요구사항 분석)
+- [ ] 1부터 9까지의 서로 다른 임의의 수 3개를 생성한다. - NumberGenerator#createRandomNumber()
+- [ ] 컴퓨터의 수(3자리)와 플레이어의 수(3자리)를 비교할 수 있다 - Referee#compare
+  - [ ] 몇 개의 숫자가 같은지를 알 수 있다. - Judgement#correctCount()
+  - [ ] 특정 자리에 특정 숫자가 있는지 알 수 있다. - Judgement#hasPlace()
+- [ ] 같은 수가 다른 자리에 있으면 볼이다.
+- [ ] 같은 수가 같은 자리에 있으면 스트라이크다. 
+- [ ] 같은 수가 전혀 없으면 아웃이다.
+
+## 작성방법
+테스트코드를 먼저 작성한다. 테스트코드는 최소한으로 간결하게 작성한다.
+기능(프로덕트)를 작성한다. 객체지향원칙에 맞춰서 작성한다.
+이후 프로덕트에 대해 리팩터링을 진행한다.
+
+1. study : 몸풀기
+2. 
+
 
 ---
-## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
+# Git - 커밋 메시지 컨벤션
 
----
-1. 피드백 강의 전까지 미션 진행 
-> 피드백 강의 전까지 혼자 힘으로 미션 진행. 미션을 진행하면서 하나의 작업이 끝날 때 마다 add, commit
-> 예를 들어 다음 숫자 야구 게임의 경우 0, 1, 2단계까지 구현을 완료한 후 push
+### Commit Message Structure
+기본적으로 커밋 메시지는 아래와 같이 제목/본문/꼬리말로 구성한다.
+```
+Type: 제목(subject)
+본문(Body)
+꼬리말(Footer)
+```
 
-![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
+### Commit Type
+feat : 새로운 기능 추가
+fix : 버그 수정
+docs : 문서 수정
+style : 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우
+refactor : 코드 리펙토링
+test : 테스트 코드, 리펙토링 테스트 코드 추가
+chore : 빌드 업무 수정, 패키지 매니저 수정
 
----
-2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
+### Subject
+제목은 50자를 넘기지 않고, 대문자로 작성하고 마침표를 붙이지 않는다.
+과거시제를 사용하지 않고 명령어로 작성한다.
+"Fixed" --> "Fix"
+"Added" --> "Add"
 
----
-3. Git 브랜치를 master 또는 main으로 변경한 후 피드백을 반영하기 위한 새로운 브랜치를 생성한 후 처음부터 다시 미션 구현을 도전한다.
+### Body
+선택사항이기 때문에 모든 커밋에 본문내용을 작성할 필요는 없다.
+부연설명이 필요하거나 커밋의 이유를 설명할 경우 작성해준다.
+72자를 넘기지 않고 제목과 구분되기 위해 한칸을 띄워 작성한다.
+
+### footer
+선택사항이기 때문에 모든 커밋에 꼬리말을 작성할 필요는 없다.
+issue tracker id를 작성할 때 사용한다.
 
 ```
-git branch -a // 모든 로컬 브랜치 확인
-git checkout master // 기본 브랜치가 master인 경우
-git checkout main // 기본 브랜치가 main인 경우
-
-git checkout -b 브랜치이름
-ex) git checkout -b apply-feedback
+ex)
+Resolves: #123
+See also: #456, #789
 ```
+
+### Example
+```
+Type: 제목(subject)
+본문(Body)
+꼬리말(Footer)
+```
+```
+(Type) (제목:SubJect)
+Feat: "추가 로그인 함수"
+
+(본문:Body)
+로그인 API 개발
+
+(꼬리말:Footer)
+Resolves: #123
+Ref: #456
+Related to: #48, #45
+```
+---

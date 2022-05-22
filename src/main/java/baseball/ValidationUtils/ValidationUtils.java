@@ -1,4 +1,4 @@
-package ValidationUtils;
+package baseball.ValidationUtils;
 
 public class ValidationUtils {
 

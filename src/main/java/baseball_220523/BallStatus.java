@@ -1,7 +1,7 @@
-package baseball;
+package baseball_220523;
 
 public enum BallStatus {
-    BALL, STRIKE, NOTHING;
+    STRIKE, BALL, NOTHING;
 
     public boolean isNotNothing() {
         return this != NOTHING;
